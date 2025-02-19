@@ -36,19 +36,12 @@ public class WalkState : StateMachineBehaviour
                    
                     return;
                 }
-                int attackType = Random.Range(0, 2);
-                if (attackType == 0)
-                {
+                
                     animator.SetTrigger("Punch");
                     enemy.StaminaDecrease(5f);
                     att.Punch();
-                }
-                else
-                {
-                    animator.SetTrigger("Kick");
-                    enemy.StaminaDecrease(5f);
-                    att.Kick();
-                }
+               
+                
             }
         }
     }
@@ -56,6 +49,6 @@ public class WalkState : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.ResetTrigger("Punch");
-        animator.ResetTrigger("Kick");
+        
     }
 }

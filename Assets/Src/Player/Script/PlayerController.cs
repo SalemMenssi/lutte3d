@@ -8,8 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private PlayerControles playerController;
 
-    [SerializeField]
-    private Transform AttackPointK;
+    
     [SerializeField]
     private Transform AttackPointP;
 
@@ -25,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     private InputAction move;
     private InputAction punch;
-    private InputAction kick;
+    
 
     private Rigidbody rb;
     private Animator animator;
@@ -49,9 +48,7 @@ public class PlayerController : MonoBehaviour
         punch.Enable();
         punch.performed += Punch;
 
-        kick = playerController.Player.Kick;
-        kick.Enable();
-        kick.performed += Kick;
+       
 
     }
 
@@ -59,7 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         move.Disable();
         punch.Disable();
-        kick.Disable();
+        
     }
 
 
@@ -124,7 +121,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void Kick(InputAction.CallbackContext context)
+    /*private void Kick(InputAction.CallbackContext context)
     {
         float kickStaminaCost = 7f;
         if (playerManager.player.Stamina < kickStaminaCost)
@@ -152,12 +149,12 @@ public class PlayerController : MonoBehaviour
                 Debug.LogWarning("Hit object does not have an Enemy component.");
             }
         }
-    }
+    }*/
     private void OnDrawGizmosSelected()
     {
         
         Gizmos.color = Color.red;  
-        Gizmos.DrawWireSphere(AttackPointK.position, attackRangeY);
+        //Gizmos.DrawWireSphere(AttackPointK.position, attackRangeY);
         Gizmos.DrawWireSphere(AttackPointP.position, attackRangeY);
     }
     
